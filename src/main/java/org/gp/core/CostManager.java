@@ -1,0 +1,86 @@
+package org.gp.core;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class CostManager {
+
+    /**
+     * 计算一个目标资源需要的基本资源个数
+     * */
+    public static Map<String, Double> calcCost(Map<String, Double> targetEntityMap, List<FactorioFormula> formulaList ){
+        Map<String, FactorioFormula> entityAndFormulaMap = genFormulaMap(formulaList);
+        if ( entityAndFormulaMap.isEmpty() ){
+            System.out.println( "配方为空" );
+            return new HashMap<>();
+        }
+        for ( String entityStr : targetEntityMap.keySet() ){
+            if ( !entityAndFormulaMap.containsKey( entityStr ) ){
+                System.out.println( String.format(
+                        "无法找到 %s 的配方",
+                        entityStr
+                ) );
+                return new HashMap<>();
+            }
+        }
+
+        while (true){
+            boolean isChanged = realCalc(targetEntityMap, entityAndFormulaMap);
+            if ( !isChanged ){
+                break;
+            }
+        }
+        return targetEntityMap;
+    }
+
+    /**
+     * 返回值：
+     *      Boolean:                本轮迭代，是否有更新
+     *      Map<String,Integer>:    返回结果
+     * */
+    private static boolean realCalc(Map<String, Double> targetEntityMap, Map<String, FactorioFormula> entityAndFormulaMap ){
+        boolean isChanged = false;
+        List<String> entityStrList = new ArrayList<>(targetEntityMap.keySet());
+        for ( String curTarget : entityStrList ){
+            // 无配方，则直接跳过
+            if ( !entityAndFormulaMap.containsKey( curTarget ) ){
+                continue;
+            }
+
+            isChanged = true;
+            Double count = targetEntityMap.get( curTarget );
+            FactorioFormula curFormula = entityAndFormulaMap.get( curTarget );
+
+            for (FactorioEntity curSourceEntity : curFormula.getSourceEntity()){
+                String key = curSourceEntity.getEntity();
+                double value = count * curSourceEntity.getCount() / curFormula.getTargetEntity().getCount();
+                targetEntityMap.put(
+                        key,
+                        value + targetEntityMap.getOrDefault( key,0.0 )
+                );
+            }
+            targetEntityMap.remove( curTarget );
+        }
+        return isChanged;
+    }
+
+
+
+
+
+
+
+
+
+    private static Map<String,FactorioFormula> genFormulaMap( List<FactorioFormula> formulaList ){
+        Map<String,FactorioFormula> map = new HashMap<>();
+        for ( FactorioFormula ff : formulaList ){
+            map.put( ff.getTargetEntity().getEntity(),ff );
+        }
+        return map;
+    }
+
+}
