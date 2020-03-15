@@ -11,6 +11,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class FactorioEntity {
-    private int count;
+    private double count;
     private String entity;
 }

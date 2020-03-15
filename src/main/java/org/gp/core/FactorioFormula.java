@@ -14,6 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class FactorioFormula {
     private FactorioEntity targetEntity;
-    private int costSeconds;
+    private double costSeconds;
     private List<FactorioEntity> sourceEntity;
 }

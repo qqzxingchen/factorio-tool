@@ -17,10 +17,10 @@ public abstract class AbsFormulaManager {
         return CostManager.calcCost( target, getFormula() );
     }
 
-    public static FactorioEntity G(int count, String entity ){
+    public static FactorioEntity G(double count, String entity ){
         return Toolkit.genEntity(count, entity);
     }
-    public static FactorioFormula G(FactorioEntity targetEntity, int costSeconds, FactorioEntity ... sourceEntityArr ){
+    public static FactorioFormula G(FactorioEntity targetEntity, double costSeconds, FactorioEntity ... sourceEntityArr ){
         List<FactorioEntity> sourceList = Arrays.asList( sourceEntityArr );
         return Toolkit.genFormula(targetEntity,costSeconds,sourceEntityArr);
     }

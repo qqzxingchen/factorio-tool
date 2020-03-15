@@ -11,25 +11,67 @@ public class FormulaV0_17 extends AbsFormulaManager {
     @Override
     public List<FactorioFormula> getFormula() {
         List<FactorioFormula> formulaList = new ArrayList<>();
+        formulaList.addAll( genBase() );
+        formulaList.addAll( genMid() );
         formulaList.addAll( genLevel1() );
-
-
-
-
-
-
-        formulaList.add( G(
-                G(1,""),
-                5,
-                G(1,""),
-                G(1,"")
-        ) );
-
-
-
         return formulaList;
     }
 
+    private static List<FactorioFormula> genMid(){
+        List<FactorioFormula> formulaList = new ArrayList<>();
+
+        
+
+
+        formulaList.add( G(
+                G(1,"绿板"),
+                0.5,
+                G(1,"铁"),
+                G(3,"铜线")
+        ) );
+        formulaList.add( G(
+                G(1,"红板"),
+                6,
+                G(2,"塑料"),
+                G(4,"铜线"),
+                G(2,"绿板")
+        ) );
+        formulaList.add( G(
+                G(1,"篮板"),
+                10,
+                G(20,"绿板"),
+                G(2,"红板"),
+                G(5,"硫酸")
+        ) );
+        return formulaList;
+    }
+
+
+
+    private static List<FactorioFormula> genBase(){
+        List<FactorioFormula> formulaList = new ArrayList<>();
+        formulaList.add( G(
+                G(2,"铜线"),
+                0.5,
+                G(1,"铜")
+        ) );
+        formulaList.add( G(
+                G(1,"齿轮"),
+                0.5,
+                G(2,"铁")
+        ) );
+        formulaList.add( G(
+                G(1,"管道"),
+                0.5,
+                G(1,"铁")
+        ) );
+        formulaList.add( G(
+                G(2,"铁棒"),
+                0.5,
+                G(1,"铁")
+        ) );
+        return formulaList;
+    }
 
     private static List<FactorioFormula> genLevel1(){
         List<FactorioFormula> formulaList = new ArrayList<>();
