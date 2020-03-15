@@ -188,26 +188,10 @@ public class FormulaV0_17 extends AbsFormulaManager {
 
     private static List<FactorioFormula> genBase(){
         List<FactorioFormula> formulaList = new ArrayList<>();
-        formulaList.add( G(
-                G(2,"铜线"),
-                0.5,
-                G(1,"铜")
-        ) );
-        formulaList.add( G(
-                G(1,"铁齿轮"),
-                0.5,
-                G(2,"铁")
-        ) );
-        formulaList.add( G(
-                G(1,"管道"),
-                0.5,
-                G(1,"铁")
-        ) );
-        formulaList.add( G(
-                G(2,"铁棒"),
-                0.5,
-                G(1,"铁")
-        ) );
+        formulaList.add( G( G(2,"铜线"), 0.5, G(1,"铜") ) );
+        formulaList.add( G( G(1,"铁齿轮"),0.5, G(2,"铁") ) );
+        formulaList.add( G( G(1,"管道"), 0.5, G(1,"铁") ) );
+        formulaList.add( G( G(2,"铁棒"), 0.5, G(1,"铁") ) );
         return formulaList;
     }
 

@@ -11,7 +11,12 @@ public class CostManager {
     /**
      * 计算一个目标资源需要的基本资源个数
      * */
-    public static Map<String, Double> calcCost(Map<String, Double> targetEntityMap, List<FactorioFormula> formulaList ){
+    public static Map<String, Double> calcCost(
+            Map<String, Double> targetEntityMap,
+            List<FactorioFormula> formulaList,
+            List<String> ignoredFormula
+    ){
+        ignoredFormula = (ignoredFormula == null) ? new ArrayList<>() : ignoredFormula;
         Map<String, FactorioFormula> entityAndFormulaMap = genFormulaMap(formulaList);
         if ( entityAndFormulaMap.isEmpty() ){
             System.out.println( "配方为空" );
@@ -28,7 +33,7 @@ public class CostManager {
         }
 
         while (true){
-            boolean isChanged = realCalc(targetEntityMap, entityAndFormulaMap);
+            boolean isChanged = realCalc(targetEntityMap, entityAndFormulaMap,ignoredFormula);
             if ( !isChanged ){
                 break;
             }
@@ -41,12 +46,16 @@ public class CostManager {
      *      Boolean:                本轮迭代，是否有更新
      *      Map<String,Integer>:    返回结果
      * */
-    private static boolean realCalc(Map<String, Double> targetEntityMap, Map<String, FactorioFormula> entityAndFormulaMap ){
+    private static boolean realCalc(
+            Map<String, Double> targetEntityMap,
+            Map<String, FactorioFormula> entityAndFormulaMap,
+            List<String> ignoredFormula
+    ){
         boolean isChanged = false;
         List<String> entityStrList = new ArrayList<>(targetEntityMap.keySet());
         for ( String curTarget : entityStrList ){
-            // 无配方，则直接跳过
-            if ( !entityAndFormulaMap.containsKey( curTarget ) ){
+            // 如果它属于忽略的合成、或者无配方，则直接跳过
+            if ( ignoredFormula.contains( curTarget ) || !entityAndFormulaMap.containsKey( curTarget ) ){
                 continue;
             }
 

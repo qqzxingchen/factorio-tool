@@ -13,8 +13,11 @@ public abstract class AbsFormulaManager {
 
     public abstract List<FactorioFormula> getFormula();
 
-    public Map<String,Double> calcCost(Map<String,Double> target){
-        return CostManager.calcCost( target, getFormula() );
+    public Map<String,Double> calcCost(Map<String,Double> target ){
+        return CostManager.calcCost( target, getFormula(), null );
+    }
+    public Map<String,Double> calcCost(Map<String,Double> target,List<String> ignoredFormula ){
+        return CostManager.calcCost( target, getFormula(), ignoredFormula );
     }
 
     public static FactorioEntity G(double count, String entity ){
