@@ -70,7 +70,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(2,"绿板")
         ) );
         formulaList.add( G(
-                G(1,"篮板"),
+                G(1,"蓝板"),
                 10,
                 G(20,"绿板"),
                 G(2,"红板"),
@@ -134,7 +134,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
         formulaList.add( G(
                 G(1,"火箭控制器"),
                 30,
-                G(1,"篮板"),
+                G(1,"蓝板"),
                 G(1,"速度插件1")
         ) );
         formulaList.add( G(
@@ -257,7 +257,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
         formulaList.add( G(
                 G(3,"黄瓶"),
                 21,
-                G(2,"篮板"),
+                G(2,"蓝板"),
                 G(1,"机器人构架"),
                 G(3,"轻质框架")
         ) );
@@ -274,7 +274,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
         formulaList.add( G(
                 G(1,"卫星"),
                 5,
-                G(100,"篮板"),
+                G(100,"蓝板"),
                 G(100,"轻质框架"),
                 G(50,"火箭燃料"),
                 G(100,"太阳能板"),
