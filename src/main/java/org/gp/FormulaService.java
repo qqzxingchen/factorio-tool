@@ -4,24 +4,36 @@ import org.gp.formula.AbsFormulaManager;
 import org.gp.formula.impl.FormulaV0_17;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class FormulaService {
 
-    public static void main(String[] args){
+    private static void calc( String targetEntity,String ... specialEntity ){
         AbsFormulaManager manager = new FormulaV0_17();
-        Map<String,Double> target = new HashMap<String, Double>() {{
-            put("生产研究", 1.0);
-        }};
 
         Map<String, Double> costMap = manager.calcCost(
-                target,
-                new ArrayList<String>(){{
-
-                }}
+                new HashMap<String, Double>() {{
+                    put(targetEntity, 1.0);
+                }},
+                Arrays.asList( specialEntity )
         );
+        for ( String entity : specialEntity ){
+            System.out.println( String.format(
+                    "special %s: \t%s",
+                    entity,costMap.get( entity )
+            ) );
+        }
+        System.out.println( "\n\n\n" );
         printCost( costMap );
+    }
+
+
+
+
+    public static void main(String[] args){
+        calc("生产研究");
     }
 
 
