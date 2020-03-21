@@ -15,7 +15,7 @@ public class FormulaService {
 
         Map<String, Double> costMap = manager.calcCost(
                 new HashMap<String, Double>() {{
-                    put(targetEntity, 1.0);
+                    put(targetEntity, 64.4 / 60);
                 }},
                 Arrays.asList( specialEntity )
         );
