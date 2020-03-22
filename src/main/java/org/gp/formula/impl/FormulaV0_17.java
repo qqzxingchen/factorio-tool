@@ -21,19 +21,24 @@ public class FormulaV0_17 extends AbsFormulaManager {
     private static List<FactorioFormula> genChemical(){
         List<FactorioFormula> formulaList = new ArrayList<>();
         formulaList.add( G(
-                G(2,"塑料"),
+                G(1.3,"固体燃料"),
+                2,
+                G(20,"石油气")
+        ));
+        formulaList.add( G(
+                G(2*1.3,"塑料"),
                 1,
                 G(1,"煤"),
                 G(20,"石油气")
         ) );
         formulaList.add( G(
-                G(2,"硫磺"),
+                G(2*1.3,"硫磺"),
                 1,
                 G(30,"水"),
                 G(30,"石油气")
         ) );
         formulaList.add( G(
-                G(50,"硫酸"),
+                G(50*1.3,"硫酸"),
                 1,
                 G(1,"铁"),
                 G(5,"硫磺"),
@@ -126,7 +131,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(5,"塑料")
         ) );
         formulaList.add( G(
-                G(1,"火箭燃料"),
+                G(1.4,"火箭燃料"),
                 30,
                 G(10,"固体燃料"),
                 G(10,"轻油")
