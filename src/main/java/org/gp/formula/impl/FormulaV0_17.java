@@ -95,7 +95,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
 
         // 内燃机、电动机
         formulaList.add( G(
-                G(1,"内燃机"),
+                G(1.4,"内燃机"),
                 10,
                 G(1,"钢"),
                 G(1,"铁齿轮"),
@@ -190,9 +190,9 @@ public class FormulaV0_17 extends AbsFormulaManager {
         List<FactorioFormula> formulaList = new ArrayList<>();
         formulaList.add( G( G(1,"钢"), 16, G(5,"铁") ) );
         formulaList.add( G( G(2*1.4,"铜线"), 0.5, G(1,"铜") ) );
-        formulaList.add( G( G(1,"铁齿轮"),0.5, G(2,"铁") ) );
+        formulaList.add( G( G(1.4,"铁齿轮"),0.5, G(2,"铁") ) );
         formulaList.add( G( G(1,"管道"), 0.5, G(1,"铁") ) );
-        formulaList.add( G( G(2,"铁棒"), 0.5, G(1,"铁") ) );
+        formulaList.add( G( G(2*1.4,"铁棒"), 0.5, G(1,"铁") ) );
         return formulaList;
     }
 
