@@ -40,7 +40,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(100,"水")
         ) );
         formulaList.add( G(
-                G(1.4,"电池"),
+                G(1.3,"电池"),
                 4,
                 G(1,"铁"),
                 G(1,"铜"),
@@ -102,7 +102,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(2,"管道")
         ) );
         formulaList.add( G(
-                G(1,"电动机"),
+                G(1.4,"电动机"),
                 10,
                 G(2,"绿板"),
                 G(1,"内燃机"),
@@ -188,7 +188,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
 
     private static List<FactorioFormula> genBase(){
         List<FactorioFormula> formulaList = new ArrayList<>();
-        formulaList.add( G( G(1,"钢"), 16, G(5,"铁") ) );
+        formulaList.add( G( G(1.2,"钢"), 16, G(5,"铁") ) );
         formulaList.add( G( G(2*1.4,"铜线"), 0.5, G(1,"铜") ) );
         formulaList.add( G( G(1.4,"铁齿轮"),0.5, G(2,"铁") ) );
         formulaList.add( G( G(1,"管道"), 0.5, G(1,"铁") ) );
