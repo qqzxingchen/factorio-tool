@@ -40,7 +40,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(100,"水")
         ) );
         formulaList.add( G(
-                G(1,"电池"),
+                G(1.4,"电池"),
                 4,
                 G(1,"铁"),
                 G(1,"铜"),
@@ -57,20 +57,20 @@ public class FormulaV0_17 extends AbsFormulaManager {
 
         // 板子
         formulaList.add( G(
-                G(1,"绿板"),
+                G(1.4,"绿板"),
                 0.5,
                 G(1,"铁"),
                 G(3,"铜线")
         ) );
         formulaList.add( G(
-                G(1,"红板"),
+                G(1.4,"红板"),
                 6,
                 G(2,"塑料"),
                 G(4,"铜线"),
                 G(2,"绿板")
         ) );
         formulaList.add( G(
-                G(1,"蓝板"),
+                G(1.4,"蓝板"),
                 10,
                 G(20,"绿板"),
                 G(2,"红板"),
@@ -111,7 +111,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
 
         // 机器人构架、轻质框架、火箭燃料、火箭控制器、插件
         formulaList.add( G(
-                G(1,"机器人构架"),
+                G(1.4,"机器人构架"),
                 20,
                 G(1,"钢"),
                 G(2,"电池"),
@@ -132,7 +132,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
                 G(10,"轻油")
         ) );
         formulaList.add( G(
-                G(1,"火箭控制器"),
+                G(1.4,"火箭控制器"),
                 30,
                 G(1,"蓝板"),
                 G(1,"速度插件1")
@@ -189,7 +189,7 @@ public class FormulaV0_17 extends AbsFormulaManager {
     private static List<FactorioFormula> genBase(){
         List<FactorioFormula> formulaList = new ArrayList<>();
         formulaList.add( G( G(1,"钢"), 16, G(5,"铁") ) );
-        formulaList.add( G( G(2,"铜线"), 0.5, G(1,"铜") ) );
+        formulaList.add( G( G(2*1.4,"铜线"), 0.5, G(1,"铜") ) );
         formulaList.add( G( G(1,"铁齿轮"),0.5, G(2,"铁") ) );
         formulaList.add( G( G(1,"管道"), 0.5, G(1,"铁") ) );
         formulaList.add( G( G(2,"铁棒"), 0.5, G(1,"铁") ) );
